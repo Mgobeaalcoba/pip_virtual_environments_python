@@ -1,0 +1,20 @@
+# Este archivo va a declarar como y desde donde se va a iniciar
+# Le pongo de nombre al contenedor web-server a diferencia del otro docker al que llame app-csv
+
+services:
+  web-server:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    # Enlace para conectar los archivos de mi maquina con los del contenedor
+    volumes:
+      - .:/app
+    # Enlace para conectar el puerto de mi maquina con el del contenedor
+    ports:
+      - '80:80'
+    
+    
+
+# Se lee como: "Vas a construir este servicio desde la carpeta
+# en la que estoy ubicado y en esa carpeta que estás ubicado vas
+# a buscar el archivo Dockerfile"
